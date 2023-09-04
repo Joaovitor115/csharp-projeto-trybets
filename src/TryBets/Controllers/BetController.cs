@@ -42,6 +42,7 @@ public class BetController : Controller
     {
         try 
         {
+            
             var token = HttpContext.User.Identity as ClaimsIdentity;
             var email = token?.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
             return Ok(_repository.Get(BetId, email!));
